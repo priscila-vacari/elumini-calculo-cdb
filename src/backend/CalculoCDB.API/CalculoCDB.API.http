@@ -1,0 +1,6 @@
+@CalculoCDB.API_HostAddress = http://localhost:5106
+
+POST {{CalculoCDB.API_HostAddress}}/api/v1/calcular
+Accept: application/json
+
+###

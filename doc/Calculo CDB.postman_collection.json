@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "cb1b6b6f-c610-4680-b0ae-8ef72372942b",
+		"name": "Calculo CDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4238552",
+		"_collection_link": "https://martian-trinity-297054.postman.co/workspace/Ambev~129656dd-33e4-4150-b2a2-10eb96ce40fe/collection/4238552-cb1b6b6f-c610-4680-b0ae-8ef72372942b?action=share&source=collection_link&creator=4238552"
+	},
+	"item": [
+		{
+			"name": "Calcular CDB",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"prazoMeses\": 2,\r\n  \"valorInicial\": 1000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7056/api/v1/Cdb/calcular",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7056",
+					"path": [
+						"api",
+						"v1",
+						"Cdb",
+						"calcular"
+					]
+				},
+				"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://localhost:7056/api/v1/Cdb/calcular' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"prazoMeses\": 2,\r\n  \"valorInicial\": 1000\r\n}'"
+			},
+			"response": [
+				{
+					"name": "Sucesso",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"prazoMeses\": 2,\r\n  \"valorInicial\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7056/api/v1/Cdb/calcular",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7056",
+							"path": [
+								"api",
+								"v1",
+								"Cdb",
+								"calcular"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 01 May 2025 22:25:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "b2dc1dcf-20e4-4dd0-89ee-978ab033ef05"
+						},
+						{
+							"key": "api-supported-versions",
+							"value": "1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"prazoMeses\": 2,\n    \"valorInicial\": 1000,\n    \"valorBruto\": 1019.5344784,\n    \"valorImposto\": 4.39525764,\n    \"valorLiquido\": 1015.13922076\n}"
+				},
+				{
+					"name": "Bad Request - Prazo inválido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"prazoMeses\": 1,\r\n  \"valorInicial\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7056/api/v1/Cdb/calcular",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7056",
+							"path": [
+								"api",
+								"v1",
+								"Cdb",
+								"calcular"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 01 May 2025 22:26:26 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "5696babc-23ca-46b7-a128-3617dd106633"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"PrazoMeses\": [\n            \"O prazo em meses deve ser maior que 1 (um).\"\n        ]\n    },\n    \"traceId\": \"00-d55b9c6793ed124b465940d90c208ca6-0072357cbd0239ca-00\"\n}"
+				},
+				{
+					"name": "Bad Request - Valor inválido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"prazoMeses\": 2,\r\n  \"valorInicial\": -10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7056/api/v1/Cdb/calcular",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7056",
+							"path": [
+								"api",
+								"v1",
+								"Cdb",
+								"calcular"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 01 May 2025 22:26:55 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "X-Correlation-ID",
+							"value": "7c1aa3c7-7959-40dd-b7c6-d3b859d1f83d"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"ValorInicial\": [\n            \"O valor inicial deve ser maior que zero.\"\n        ]\n    },\n    \"traceId\": \"00-e2db322604641a6db10d851c2a06e193-4a8ff6da848bcd73-00\"\n}"
+				}
+			]
+		}
+	]
+}

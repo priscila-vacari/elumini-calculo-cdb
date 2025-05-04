@@ -1,0 +1,14 @@
+<form (ngSubmit)="calcularInvestimento()">
+    <label>Valor Inicial:</label>
+    <input type="number" [(ngModel)]="valorInicial" name="valorInicial" required>
+  
+    <label>Prazo (Meses):</label>
+    <input type="number" [(ngModel)]="prazoMeses" name="prazoMeses" required>
+  
+    <button type="submit">Calcular CDB</button>
+  </form>
+  
+  <div *ngIf="resultado">
+    <app-resultado [dados]="resultado"></app-resultado>
+  </div>
+  
