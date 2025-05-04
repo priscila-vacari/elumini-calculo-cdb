@@ -52,6 +52,16 @@ namespace CalculoCDB.API
                 ApplicationDependencyRegister.RegisterServices(builder.Services);
                 #endregion
 
+                builder.Services.AddCors(options =>
+                {
+                    options.AddPolicy("AllowFrontend", policy =>
+                    {
+                        policy.WithOrigins("http://localhost:4200")
+                              .AllowAnyHeader()
+                              .AllowAnyMethod();
+                    });
+                });
+
                 var app = builder.Build();
 
                 if (app.Environment.IsDevelopment())
@@ -63,6 +73,8 @@ namespace CalculoCDB.API
                 app.UseHttpsRedirection();
                 app.UseAuthorization();
                 app.MapControllers();
+
+                app.UseCors("AllowFrontend");
 
                 app.UseHealthChecks("/health",
                     new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions()

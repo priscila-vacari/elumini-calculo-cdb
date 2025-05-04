@@ -7,8 +7,12 @@
   
     <button type="submit">Calcular CDB</button>
   </form>
-  
+    
+<hr />
+<br>
+
   <div *ngIf="resultado">
-    <app-resultado [dados]="resultado"></app-resultado>
+    <h2>Resultado do CDB</h2>
+    <p><strong>Valor Bruto:</strong> {{ resultado?.valorBruto | currency:'BRL' }}</p>
+    <p><strong>Valor Líquido:</strong> {{ resultado?.valorLiquido | currency:'BRL' }}</p>
   </div>
-  

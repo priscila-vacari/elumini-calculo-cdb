@@ -21,8 +21,20 @@ export class CalculoComponent {
   calcularInvestimento() {
     const request = { valorInicial: this.valorInicial, prazoMeses: this.prazoMeses };
     
-    this.cdbService.calcularCdb(request).subscribe(response => {
-      this.resultado = response;
+    this.cdbService.calcularCdb(request).subscribe({
+      next: (response) => {
+        this.resultado = response;
+      },
+      error: (err) => {
+        switch (err.status) {
+          case 400:
+            alert('⚠️ Requisição inválida. Verifique os dados informados.');
+            break;
+          default:
+            alert('❌ Erro inesperado. Tente novamente mais tarde.');
+            console.error('Erro:', err);
+        }
+      }
     });
   }
 }
