@@ -31,8 +31,8 @@ A aplicação segue um padrão de divisão em camadas:
 Clone este repositório:
 ```
 bash
-git clone https://github.com/priscila-vacari/projeto-cdb.git
-cd projeto-cdb
+git clone https://github.com/priscila-vacari/elumini-calculo-cdb.git
+cd elumini-calculo-cdb
 ```
 
 Abra a solução no Visual Studio.
